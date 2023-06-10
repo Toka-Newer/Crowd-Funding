@@ -1,0 +1,17 @@
+.donate-btn {
+  background-color: beige;
+}
+.donate-btn:hover {
+  background-color: #ffc107;
+}
+.slider {
+  height: 600px;
+  object-fit: cover;
+}
+.card-content-container {
+  width: 80%; /* Adjust the width as needed */
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+}

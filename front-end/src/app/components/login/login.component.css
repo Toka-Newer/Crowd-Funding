@@ -1,0 +1,18 @@
+.small-input {
+  width: 600px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+.shadow{
+  box-shadow: 0 0px 1px rgba(0, 0, 0, 0.2) !important;
+}

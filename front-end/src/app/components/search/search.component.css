@@ -1,0 +1,27 @@
+    .result {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    }
+
+    .result h5 {
+    margin-top: 0;
+    }
+
+    .result p {
+    margin-bottom: 0;
+    }
+
+    img {
+    /* max-width: 400px;
+    max-height: 600px; */
+    object-fit: contain;
+    }
+    .card {
+    transition: ease-in 0.2s;
+    }
+    .card:hover {
+    cursor: pointer;
+    border: 1px solid #198754;
+}

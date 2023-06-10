@@ -1,0 +1,22 @@
+<!-- <div>
+  <img src=" {{back_end_url+''+project?.images[0]?.url}}" class="w-100 slider" alt="...">
+  <div class="carousel-caption d-none d-md-block">
+    <h3 class="text-dark text-bold">{{this.project.title}}</h3>
+    <p class="text-dark">{{this.project.details}}</p>
+    <button class="btn btn-outline-warning text-dark donate-btn" routerLink="/projects/{{project.id}}">Donate
+      Now</button>
+  </div>
+</div> -->
+
+<div class="card w-100" routerLink="/projects/{{project.id}}">
+  <div style="position: relative;">
+    <img src="{{back_end_url+''+project?.images[0]?.url}}" class="card-img-top" alt="..." height="300px">
+    <div class="w-100"
+      style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+      <div class="card-content-container">
+        <h5 class="card-title">{{project.title}}</h5>
+        <p class="card-text">{{project.details}}</p>
+      </div>
+    </div>
+  </div>
+</div>

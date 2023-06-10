@@ -1,0 +1,10 @@
+.slider {
+  height: 600px;
+  object-fit: cover;
+}
+
+.donations-table{
+  height: 25vh;
+  overflow-y: scroll;
+  /* position: sticky; */
+}

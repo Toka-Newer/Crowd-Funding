@@ -1,0 +1,8 @@
+.category {
+
+}
+
+.category:hover {
+  border: 1px solid #198754;
+    cursor: pointer;
+}

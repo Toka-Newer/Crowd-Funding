@@ -1,0 +1,151 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="w-50" style="box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);">
+    <div class="card border-0">
+      <form [formGroup]="form" (submit)="submit($event)" enctype="multipart/form-data" class="p-5">
+        <h5 class="fw-normal pb-3 text-center">Create Your Account</h5>
+        <div class="row mb-3">
+          <div class="username col-md-6 my-1">
+            <label for="text" class="form-label">User Name</label>
+            <input type="name" class="form-control shadow" id="username" formControlName="username" />
+            <ng-container *ngIf="this.getUserName.touched">
+              <div *ngIf="this.getUserName.hasError('required')" class="invalid-feedback d-block">
+                User Name is Required
+              </div>
+              <div *ngIf="this.errors?.name" class="invalid-feedback d-block">
+                {{ this.errors?.name[0] }}
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="firstname col-md-6 my-1">
+            <label for="fisrtname" class="form-label">First Name</label>
+            <input type="name" class="form-control shadow" id="fisrtname" formControlName="firstName" />
+            <ng-container *ngIf="this.getFirstName.touched">
+              <div *ngIf="this.getFirstName.hasError('required')" class="invalid-feedback d-block">
+                First Name is Required
+              </div>
+              <div *ngIf="this.errors?.name" class="invalid-feedback d-block">
+                {{ this.errors?.firstName[0] }}
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="lastname col-md-6 my-1">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="name" class="form-control shadow" id="lastname" formControlName="lastName" />
+            <ng-container *ngIf="this.getLastName.touched">
+              <div *ngIf="this.getLastName.hasError('required')" class="invalid-feedback d-block">
+                last Name is Required
+              </div>
+              <div *ngIf="this.errors?.name" class="invalid-feedback d-block">
+                {{ this.errors?.lastName[0] }}
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="mobile col-md-6 my-1">
+            <label for="mobile" class="form-label">phone</label>
+            <input type="mobile" class="form-control shadow" id="mobile" formControlName="mobile" />
+            <ng-container *ngIf="this.getMobile.touched">
+              <div *ngIf="this.getMobile.hasError('required')" class="invalid-feedback d-block">
+                Mobile is Required
+              </div>
+              <div *ngIf="this.getMobile.hasError('pattern')" class="invalid-feedback d-block">
+                Mobile is not valid
+              </div>
+
+              <div *ngIf="this.errors?.mobile" class="invalid-feedback d-block">
+                {{ this.errors?.phone[0] }}
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="email col-md-12 my-1">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control shadow" id="email" formControlName="email" />
+            <ng-container *ngIf="this.getEmail.touched">
+              <div *ngIf="this.getEmail.hasError('required')" class="invalid-feedback d-block">
+                Email is Required
+              </div>
+              <div *ngIf="this.getEmail.hasError('email')" class="invalid-feedback d-block">
+                Email is not valid
+              </div>
+              <div *ngIf="this.errors?.email" class="invalid-feedback d-block">
+                {{ this.errors?.email[0] }}
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="pass col-md-6 my-1">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control shadow" id="password" formControlName="password" />
+            <ng-container *ngIf="this.getPassword.touched">
+              <div *ngIf="this.getPassword.hasError('required')" class="invalid-feedback d-block">
+                Password is required
+              </div>
+              <div *ngIf="this.getPassword.hasError('minlength')" class="invalid-feedback d-block">
+                Password is at least 8 characters
+              </div>
+
+              <div *ngIf="this.getPassword.hasError('pattern')" class="invalid-feedback d-block">
+                Password must contain uppercase lowercase and special character
+              </div>
+
+              <div *ngIf="this.errors?.password" class="invalid-feedback d-block">
+                {{ this.errors?.password[0] }}
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="pass2 col-md-6 my-1">
+            <label for="password2" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control shadow" id="password2" formControlName="password2" />
+            <ng-container *ngIf="this.getPassword2.touched">
+              <div *ngIf="this.getPassword2.hasError('required')" class="invalid-feedback d-block">
+                Password is required
+              </div>
+              <div *ngIf="this.getPassword2.value != this.getPassword.value" class="invalid-feedback d-block">
+                passwords must match
+              </div>
+
+
+            </ng-container>
+          </div>
+
+          <div class="file col-md-12 my-1">
+            <label for="formFile" class="form-label">Avatar</label>
+            <input class="form-control shadow" type="file" id="formFile" (change)="readUrl($event)"
+              formControlName="image" />
+            <ng-container>
+              <div *ngIf="this.getImage.hasError('required') && this.getImage.touched" class="invalid-feedback d-block">
+                image is required
+              </div>
+              <div *ngIf="this.getImage.hasError('maxSize') && this.getImage.touched" class="invalid-feedback d-block">
+                image size mustn't exceed 2mb
+              </div>
+              <div *ngIf="
+              this.getImage.hasError('invalidExtension') &&
+              this.getImage.touched
+            " class="invalid-feedback d-block">
+                image type is not valid
+              </div>
+
+              <div *ngIf="this.errors?.picture" class="invalid-feedback d-block">
+                {{ this.errors?.picture[0] }}
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+        <div class="text-center w-100 mt-4 mb-2">
+          <button type="submit" class="btn w-100" style="background-color: #36B37E; color: #fff;">Register</button>
+        </div>
+
+        <p class="pt-2">
+          Already has an account
+          <a routerLink="/login">Login</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

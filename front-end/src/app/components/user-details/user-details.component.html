@@ -1,0 +1,32 @@
+<app-navbar />
+<div class="my-5">
+  <div class="card mb-3 w-75 mx-auto" style="height: 500px;">
+    <div class="row g-0">
+      <div class="col-md-6">
+        <img src="{{ MyData?.picture }}" class="img-fluid rounded-start w-100" alt="..." style="height: 497px;">
+        <div class="position-absolute bottom-0 text-dark bg-light w-50 text-center">
+          <h5 class="card-title fw-normal my-2 text-capitalize">{{ MyData?.username }}</h5>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card-body p-5">
+          <h3 class="card-title text-capitalize">{{ MyData?.first_name }} {{ MyData?.last_name }}</h3>
+          <!-- <p class="card-text py-1 px-2">Mobile Phone: {{ MyData?.phone }}</p> -->
+          <div class="col-md-12 py-1">
+            <label class="labels py-2">Email Address</label>
+            <label type="text" class="form-control">{{ MyData?.email }}</label>
+          </div>
+          <div class="col-md-12 py-1">
+            <label class="labels py-2">Mobile Number</label>
+            <label type="text" class="form-control">{{ MyData?.phone }}</label>
+          </div>
+          <!-- <p class="card-text py-1 px-2">Email Address: {{ MyData?.email }}</p> -->
+          <p class="card-text py-1 px-2 float-end"><small class="text-muted">Login date: <br />{{ MyData?.date_joined
+              }}</small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer />

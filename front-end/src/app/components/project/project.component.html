@@ -1,0 +1,116 @@
+<app-navbar />
+
+<div class="d-flex flex-column m-2">
+  <!-- ############# -->
+
+  <!-- 1111111111111111111111111 -->
+  <h2 class="text-center p-2">{{this.project?.title}}</h2>
+  <!-- 1111111111111111111111111 -->
+  <div class="d-flex justify-content-center w-100 ">
+    <!-- image slider -->
+    <div id="carouselExampleIndicators" class="carousel slide mb-2 w-75" [attr.data-bs-interval]="4000"
+      data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item " *ngFor="let image of this.project?.images; let i = index"
+          [ngClass]="{'active': i === 0}">
+          <img src="{{back_end_url+''+image.url}}" class="d-block w-100 slider rounded" alt="..." />
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <!-- 1111111111111111111111111 -->
+  <div class="d-flex justify-content-evenly align-items-center border border-secondary-subtle rounded w-100 mt-3">
+    <div class="h-100 w-50" routerLink="/projects/{{this.project?.id}}">
+
+      <!-- </div> -->
+      <app-search-result [project]=" project" />
+    </div>
+    <div class=" w-25">
+
+
+      <div class=" card ">
+        <div class="card-body">
+          <div class="mb-3">
+            <form [formGroup]="form" (submit)="submit($event)" enctype="multipart/form-data">
+              <label for="amount" class="form-label">Amount</label>
+              <input min="5" formControlName="amount" type="number" class="form-control mb-2" id="amount">
+              <div *ngIf="
+                            this.getAmount.hasError('required') &&
+                            this.getAmount.touched
+                          " class="invalid-feedback d-block">amount is required
+              </div>
+              <div *ngIf="
+                        this.getAmount.hasError('pattern') &&
+                        this.getAmount.touched
+                      " class="invalid-feedback d-block">
+                amount is not valid
+
+              </div>
+
+
+
+              <button class="btn btn-warning w-100 fs-4 mb-1" type="submit">Donate Now</button>
+            </form>
+
+          </div>
+
+
+          <button *ngIf="loggedUser?.id!==this.project?.user?.id" class="btn btn-danger w-100 fs-4 mb-1"
+            onclick="">Cancel</button>
+          <h5>Donations</h5>
+          <div class="donations-table  ">
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">user</th>
+                  <th scope="col">amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of this.project?.donations">
+                  <td>{{item.user}}</td>
+                  <td>{{item.amount}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- 1111111111111111111111111 -->
+  <div>
+    <div class="comments">
+      <div class="card">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="row border border-danger">
+      <h3 class="text-center mt-4">Similar Projects</h3>
+      <div *ngFor="let item of similarProjects" class="col-6">
+        <app-search-result [project]="item"></app-search-result>
+      </div>
+    </div>
+
+
+  </div>

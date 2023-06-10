@@ -1,0 +1,20 @@
+<div>
+  <app-navbar />
+</div>
+<div class="container">
+  <h1 *ngIf="projects.results >= 1">My Projects</h1>
+  <div class="row">
+    <div class="mt-5 col-md-4" *ngFor="let project of projects.results">
+      <app-search-result [project]="project"></app-search-result>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 10%" *ngIf="projects.results <= 0">
+    <p style="font-size: 24px">You Do Not Have Projects Yet !</p>
+    <button class="btn btn-outline-success fs-4 project" routerLink="/projects/0/edit">
+      Start A project
+    </button>
+  </div>
+</div>
+<div>
+  <app-footer />
+</div>

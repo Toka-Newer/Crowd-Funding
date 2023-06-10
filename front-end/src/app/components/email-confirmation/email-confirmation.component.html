@@ -1,0 +1,8 @@
+<div *ngIf="code === '0'" class="alert alert-info text-center mt-4">
+    Please, Check your Email
+</div>
+    
+<div *ngIf="code !== '0'" class="alert alert-warning text-center mt-4">
+    Confirm your email
+    <button class="btn btn-primary" (click)="submit()">Confirm</button>
+</div>

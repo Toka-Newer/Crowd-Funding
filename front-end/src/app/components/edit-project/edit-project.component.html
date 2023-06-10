@@ -1,0 +1,139 @@
+<app-navbar></app-navbar>
+<div class="d-flex justify-content-center align-items-center">
+  <div class="login-form container my-5 w-75">
+    <div class="card border-0" style="box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);">
+      <form [formGroup]="form" (submit)="submit($event)" enctype="multipart/form-data" class="p-5">
+        <div class="mb-3">
+          <h5 class="fw-bold pb-4">Start A Project</h5>
+          <div class="title mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control shadow" id="title" formControlName="title" />
+            <ng-container *ngIf="this.getTitle.touched">
+              <div *ngIf="this.getTitle.hasError('required')" class="invalid-feedback d-block">
+                title is Required
+              </div>
+              <!-- <div *ngIf="this.errors?.name" class="invalid-feedback d-block">
+                        {{ this.errors?.name[0] }}
+                    </div> -->
+            </ng-container>
+          </div>
+
+          <div class="details mb-3">
+            <label for="details" class="form-label">Details</label>
+            <textarea class="form-control shadow" id="details" formControlName="details"></textarea>
+            <ng-container *ngIf="this.getDetails.touched">
+              <div *ngIf="this.getDetails.hasError('required')" class="invalid-feedback d-block">
+                details is Required
+              </div>
+              <!-- <div *ngIf="this.errors?.name" class="invalid-feedback d-block">
+                        {{ this.errors?.firstName[0] }}
+                    </div> -->
+            </ng-container>
+          </div>
+
+          <div class="category mb-3">
+            <label for="details" class="form-label">category</label>
+            <!-- <input type="text" class="form-control" id="details" formControlName="category" /> -->
+            <select aria-placeholder="choose" class="form-select shadow" id="category" formControlName="category">
+              <option *ngFor="let cat of categories?.categories" [value]="cat.id">{{cat.name}}</option>
+            </select>
+            <ng-container *ngIf="this.getCategory.touched">
+              <div *ngIf="this.getCategory.hasError('required')" class="invalid-feedback d-block">
+                category is Required
+              </div>
+              <!-- <div *ngIf="this.errors?.name" class="invalid-feedback d-block">
+                                    {{ this.errors?.firstName[0] }}
+                                </div> -->
+            </ng-container>
+          </div>
+
+          <div class="target_donations mb-3">
+            <label for="target_donations" class="form-label">Target Donations</label>
+            <input type="number" min="0" class="form-control shadow" id="target_donations"
+              formControlName="target_donations" />
+            <ng-container *ngIf="this.getTargetDonations.touched">
+              <div *ngIf="this.getTargetDonations.hasError('required')" class="invalid-feedback d-block">
+                Target donations is Required
+              </div>
+              <!-- <div *ngIf="this.errors?.name" class="invalid-feedback d-block">
+                        {{ this.errors?.lastName[0] }}
+                    </div> -->
+            </ng-container>
+          </div>
+          <div class="tags mb-3">
+            <label for="tags" class="form-label">Select Tags</label>
+            <!-- <input type="text" class="form-control" id="details" formControlName="category" /> -->
+            <select aria-placeholder="choose" class="form-select shadow" id="tags" formControlName="tags" multiple>
+              <option *ngFor="let tag of tags?.tags" [value]="tag.id">{{tag.name}}</option>
+            </select>
+            <ng-container *ngIf="this.getTags.touched">
+              <div *ngIf="this.getTags.hasError('required')" class="invalid-feedback d-block">
+                Project Tags is Required
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="d-flex justify-content-between w-100 mt-3 mb-3">
+
+            <div class="start_date w-50 pe-3">
+              <label for="start_date" class="form-label">Start date</label>
+              <input type="date" class="form-control shadow" id="start_date" formControlName="start_date" />
+              <ng-container *ngIf="this.getStartDate.touched">
+                <div *ngIf="this.getStartDate.hasError('required')" class="invalid-feedback d-block">
+                  Start date is Required
+                </div>
+                <div *ngIf="this.getStartDate.hasError('startDateInvalid')" class="invalid-feedback d-block">
+                  Start date is Invalid
+                </div>
+              </ng-container>
+            </div>
+
+            <div class="end_date w-50 ps-3">
+              <label for="end_date" class="form-label">End date</label>
+              <input type="date" class="form-control shadow" id="end_date" formControlName="end_date" />
+              <ng-container *ngIf="this.getEndDate.touched">
+                <div *ngIf="this.getEndDate.hasError('required')" class="invalid-feedback d-block">
+                  End date is Required
+                </div>
+                <div *ngIf="this.getEndDate.hasError('endDateInvalid')" class="invalid-feedback d-block">
+                  End date is Invalid
+                </div>
+
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="files mt-4 mb-3">
+            <label for="formFile" class="form-label">Image</label>
+            <input class="form-control shadow" formControlName="images" type="file" accept="image/*" id="formFile"
+              (change)="readUrl($event)" multiple />
+            <ng-container>
+              <div *ngIf="this.getImages.hasError('required') && this.getImages.touched"
+                class="invalid-feedback d-block">
+                image is required
+              </div>
+              <div *ngIf="this.getImages.hasError('maxSize') && this.getImages.touched"
+                class="invalid-feedback d-block">
+                image size mustn't exceed 2mb
+              </div>
+              <div *ngIf="this.getImages.hasError('invalidExtension') && this.getImages.touched"
+                class="invalid-feedback d-block">
+                image type is not valid
+              </div>
+
+              <div *ngIf="this.errors?.images" class="invalid-feedback d-block">
+                {{ this.errors?.images[0] }}
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+        <div class="mt-4 w-100">
+          <button type="submit" class="btn btn-primary w-25 float-end"
+            style="background-color: #36B37E; color: #fff;">Add Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- [disabled]="form.invalid" -->

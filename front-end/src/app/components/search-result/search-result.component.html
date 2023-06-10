@@ -1,0 +1,53 @@
+<!-- <div class="card mb-3" routerLink="/projects/{{project?.id}}">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{back_end_url+''+project?.images[0]?.url}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body ms-4">
+        <h5 class="card-title ">{{project?.title}}</h5>
+        <p class="card-text p-3">{{transformWords(project?.details,25)+' ...'}}</p>
+        <figcaption class="blockquote-footer">
+          Project Owner
+          <cite title="Source Title">{{project?.user.username | titlecase}}</cite>
+        </figcaption>
+        <div class="d-flex flex-column">
+          <div class="d-flex justify-content-between">
+            <p>
+              Donations:{{project?.current_donations|currency}}-{{project?.target_donations|currency}}
+            </p>
+          </div>
+          <div class="d-flex w-100 my-2 ms-1 me-5">
+            <div class="progress w-75">
+              <div [ngClass]="{'progress-bar' : true,
+                  'bg-warning': percentComplete(project) <50,
+                  'bg-primary': percentComplete(project)>50,
+                  'bg-success': percentComplete(project)==100,}" role="progressbar"
+                [style.width.%]="percentComplete(project)" [attr.aria-valuenow]="percentComplete(project)"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="w-25 d-flex justify-content-center">
+              <div class="">
+                {{transformDuration(project?.end_date,project?.start_date) }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="card" routerLink="/projects/{{project?.id}}" style="min-height: 490px;">
+  <img src="{{back_end_url+''+project?.images[0]?.url}}" class="card-img-top" alt="..." style="height: 300px;">
+  <div class="card-body">
+    <h5 class="card-title text-capitalize">{{project?.title}}</h5>
+    <p class="card-text mb-1">{{transformWords(project?.details,10)+' ...'}}</p>
+    <p class="card-text"><small class="text-muted">{{project?.user.username | titlecase}}</small></p>
+    <p class="card-text d-flex flex-wrap justify-content-between">
+      {{project?.current_donations|currency}} Raised · {{project?.target_donations|currency}} Target
+      <span class="card-text"><small class="text-muted">{{transformDuration(project?.end_date,project?.start_date)
+          }}</small>
+      </span>
+    </p>
+  </div>
+</div>

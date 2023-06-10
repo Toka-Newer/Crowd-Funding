@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-success fs-4" href="#"><i class="bi bi-gift me-2"></i>Crowd Funding</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <button class="btn ms-2 me-2 search-btn" routerLink="/projects/search">
+        <i class="bi bi-search me-2"></i>Search
+      </button>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link"></a>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-outline-success ms-2 me-2" routerLink="/projects/0/edit">
+            Start A project
+          </button>
+        </li>
+      </ul>
+      <div class="dropdown">
+        <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="me-2 user-name">{{ this.loggedUser.username }}</span>
+          <img src="{{ back_end_url+''+getImageUrl }}" alt="" class="profile-pic" />
+        </a>
+
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" routerLink="/user/details">Profile</a></li>
+          <li><a class="dropdown-item" routerLink="/user/projects">Projects</a></li>
+          <li><a class="dropdown-item" routerLink="/user/donations">Donations</a></li>
+          <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

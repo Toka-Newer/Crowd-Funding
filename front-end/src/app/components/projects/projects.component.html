@@ -1,0 +1,16 @@
+<div class="highest container my-5">
+
+  <app-highest-projects [projects]="projects.slider" />
+</div>
+<div class="latest container">
+  <h2>Latest Projects</h2>
+  <app-featured-projects [projects]="projects.latest" />
+</div>
+<div class="featured container">
+  <h2>Featured Projects</h2>
+  <app-featured-projects [projects]="projects.featured" />
+</div>
+<div class="categories container">
+  <h2>Categories</h2>
+  <app-categories [categories]="projects.categories" />
+</div>

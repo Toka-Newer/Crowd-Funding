@@ -1,0 +1,15 @@
+.small-input {
+    width: 600px; 
+    }
+
+    .form-container {
+        display: flex; 
+        justify-content: center;
+        align-items: center; 
+        height: 100vh; 
+    }
+
+    .form {
+        border: 1px solid #ccc;
+        padding: 20px;
+        }
