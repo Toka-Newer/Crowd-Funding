@@ -10,7 +10,10 @@
       </div>
       <div class="col-md-6">
         <div class="card-body p-5">
-          <h3 class="card-title text-capitalize">{{ MyData?.first_name }} {{ MyData?.last_name }}</h3>
+          <div class="d-flex justify-content-between">
+            <h3 class="card-title text-capitalize">{{ MyData?.first_name }} {{ MyData?.last_name }}</h3>
+            <div><Button class="btn primaryBtn" routerLink="/user/edit">Edit Profile</Button></div>
+          </div>
           <!-- <p class="card-text py-1 px-2">Mobile Phone: {{ MyData?.phone }}</p> -->
           <div class="col-md-12 py-1">
             <label class="labels py-2">Email Address</label>
@@ -21,9 +24,9 @@
             <label type="text" class="form-control">{{ MyData?.phone }}</label>
           </div>
           <!-- <p class="card-text py-1 px-2">Email Address: {{ MyData?.email }}</p> -->
-          <p class="card-text py-1 px-2 float-end"><small class="text-muted">Login date: <br />{{ MyData?.date_joined
+          <!-- <p class="card-text py-1 px-2 float-end"><small class="text-muted">Login date: <br />{{ MyData?.date_joined
               }}</small>
-          </p>
+          </p> -->
         </div>
       </div>
     </div>

@@ -13,21 +13,21 @@ export class EmailConfirmationComponent {
   errors: any;
   code: string;
   email: string;
-  constructor(private auth: AuthService, private router: Router,private activatedRoute: ActivatedRoute,) {
+  constructor(private auth: AuthService, private router: Router, private activatedRoute: ActivatedRoute,) {
     this.code = String(this.activatedRoute.snapshot.paramMap.get('code'));
     this.email = String(this.activatedRoute.snapshot.paramMap.get('email'));
   }
 
   submit() {
-        this.auth.confirm(this.email,this.code).subscribe({
+    this.auth.confirm(this.email, this.code).subscribe({
       next: (res: any) => {
         // console.log(this.data)
-        console.log("Response : ",res);
+        console.log("Response : ", res);
         this.auth.loggedUser = res.user;
-        localStorage.setItem('user',this.auth.loggedUser)
-        this.router.navigate(['/home']);
+        localStorage.setItem('user', JSON.stringify(res.user))
         localStorage.setItem('token', res.token);
-        
+        this.router.navigate(['/']);
+
       },
       error: (err) => {
         // console.log(this.data)

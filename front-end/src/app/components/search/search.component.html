@@ -3,34 +3,28 @@
   <div>
     <nav class="navbar bg-body-tertiary py-3">
       <div class="container">
-        <div>
-          <!-- <a class="navbar-brand fw-bold text-success fs-4" href="#">
+        <div class="w-100 d-flex justify-content-between">
+          <div class="col-md-6">
+            <div>
+              <!-- <a class="navbar-brand fw-bold text-success fs-4" href="#">
             <i class="bi bi-gift me-2"></i>Crowd Funding</a> -->
-          <a
-            class="navbar-brand fw-bold fs-4"
-            href="#"
-            style="color: #0d566a"
-            routerLink="/projects"
-            >Crowd Funding</a
-          >
+              <a class="navbar-brand fw-bold fs-4" href="#" style="color: #0d566a" routerLink="/projects">Crowd
+                Funding</a>
+
+              <a class="navbar-link text-decoration-none" href="#" style="color: #0d566a"
+                routerLink="/projects">Home</a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <form [formGroup]="myform" (submit)="submit($event)" class="d-flex me-5">
+              <input class="form-control me-2 " formControlName="value" type="search" [placeholder]="placeholder"
+                aria-label="Search" required="true" />
+              <button class="btn primaryBtn px-5" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
         </div>
-        <form
-          [formGroup]="myform"
-          (submit)="submit($event)"
-          class="d-flex w-75 me-5"
-        >
-          <input
-            class="form-control me-2"
-            formControlName="value"
-            type="search"
-            [placeholder]="placeholder"
-            aria-label="Search"
-            required="true"
-          />
-          <button class="btn btn-outline-success px-5" type="submit">
-            Search
-          </button>
-        </form>
       </div>
     </nav>
   </div>
@@ -38,7 +32,7 @@
     <!-- search result -->
     <div *ngIf="projects?.search.length > 0" class="container">
       <div class="m-5">
-        <p class="text-success fs-5 fw-bold">
+        <p class="primaryColor fs-5 fw-bold">
           {{ projects.search.length }} search results
         </p>
         <div class="row">
@@ -52,10 +46,7 @@
 
     <!-- not found -->
     <div class="container text-center">
-      <div
-        *ngIf="projects?.search.length < 1 && flag"
-        class="d-flex flex-wrap justify-content-center"
-      >
+      <div *ngIf="projects?.search.length < 1 && flag" class="d-flex flex-wrap justify-content-center">
         <p class="fs-5">Not Found</p>
       </div>
     </div>

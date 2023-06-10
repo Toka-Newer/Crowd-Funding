@@ -24,15 +24,13 @@
     <div class="col-md-3 my-2" *ngFor="let donation of this.data.results">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title py-2">
+          <h5 class="card-title primaryColor py-2">
             {{ donation?.project }}
           </h5>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Amount : {{ donation?.amount }}</li>
             <li class="list-group-item">{{donation?.updated_at}}</li>
           </ul>
-          <!-- <h6 class="card-subtitle py-1 mb-2 text-muted">Amount : {{ donation?.amount }}</h6>
-          <p class="card-text py-1">{{donation?.updated_at}}</p> -->
         </div>
       </div>
     </div>

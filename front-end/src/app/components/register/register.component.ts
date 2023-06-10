@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent {
   errors: any;
-  myfile:any
+  myfile: any
   data: FormData = new FormData();
   form: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -36,7 +36,7 @@ export class RegisterComponent {
     password2: new FormControl('', [Validators.required]),
   });
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router) { }
 
   get getEmail() {
     return this.form.controls['email'];
@@ -73,18 +73,18 @@ export class RegisterComponent {
     return this.form.controls['password2'];
   }
 
-  readUrl(event:any){
+  readUrl(event: any) {
     console.log(event.target.files[0])
-    this.myfile =event.target.files[0]
+    this.myfile = event.target.files[0]
     const file = event.target.files[0]
     const type = file.type
-    const validExt = ['image/jpeg','image/jpg','image/png']
+    const validExt = ['image/jpeg', 'image/jpg', 'image/png']
     const size = file.size
-    if (!validExt.includes(type)){
-    return  this.getImage.setErrors({ ...(this.getImage.errors || {}), 'invalidExtension': 'invalid extension' })
+    if (!validExt.includes(type)) {
+      return this.getImage.setErrors({ ...(this.getImage.errors || {}), 'invalidExtension': 'invalid extension' })
     }
-    if (size>2000000){
-    return  this.getImage.setErrors({ ...(this.getImage.errors || {}), 'maxSize': 'max size exceeds 2 mb' })
+    if (size > 2000000) {
+      return this.getImage.setErrors({ ...(this.getImage.errors || {}), 'maxSize': 'max size exceeds 2 mb' })
     }
     return this.getImage.setErrors(null)
   }
@@ -94,8 +94,6 @@ export class RegisterComponent {
     let email: string = this.getEmail.value;
     e.preventDefault();
     if (this.form.status == 'VALID') {
-      console.log(this.getImage.value)
-      console.log(this.getUserName.value)
       this.data.append('username', this.getUserName.value);
       this.data.append('first_name', this.getFirstName.value);
       this.data.append('last_name', this.getLastName.value);

@@ -13,6 +13,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmailConfirmationComponent } from './components/email-confirmation/email-confirmation.component';
 import { UserModule } from './user.module';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { UserModule } from './user.module';
     LoginComponent,
     RegisterComponent,
     EmailConfirmationComponent,
-
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +33,7 @@ import { UserModule } from './user.module';
     HttpClientModule
   ],
   providers: [{
-    provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true
+    provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
   }
   ],
   bootstrap: [AppComponent]
