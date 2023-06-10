@@ -1,26 +1,33 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container py-1">
-    <a class="navbar-brand fw-bold fs-4" href="#" style="color: #36B37E;" routerLink="/projects">Crowd Funding</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a
+      class="navbar-brand fw-bold fs-4"
+      href="#"
+      style="color: #0d566a"
+      routerLink="/projects"
+      >Crowd Funding</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/user/details">
-            Profile
-          </a>
+          <a class="nav-link" routerLink="/user/details"> Profile </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/user/projects">
-            Projects
-          </a>
+          <a class="nav-link" routerLink="/user/projects"> Projects </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/user/donations">
-            Donations
-          </a>
+          <a class="nav-link" routerLink="/user/donations"> Donations </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/projects/0/edit">
@@ -28,20 +35,41 @@
           </a>
         </li>
       </ul>
-      <button class="btn btn-outline-success me-3" type="submit" routerLink="/projects/search">Search</button>
+      <button
+        class="btn btn-outline-success me-3"
+        type="submit"
+        routerLink="/projects/search"
+      >
+        Search
+      </button>
       <div class="dropdown">
-        <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a
+          class="dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
           <!-- <span class="me-2 user-name">{{ this.loggedUser.username }}</span> -->
-          <img src="{{ back_end_url+''+getImageUrl }}" alt="" class="profile-pic" />
+          <img
+            src="{{ back_end_url + '' + getImageUrl }}"
+            alt=""
+            class="profile-pic"
+          />
         </a>
 
         <ul class="dropdown-menu">
           <li>
-            <h5 class="dropdown-item text-capitalize border-bottom text-center pb-2">
+            <h5
+              class="dropdown-item text-capitalize border-bottom text-center pb-2"
+            >
               {{ this.loggedUser.username }}
             </h5>
           </li>
-          <li><a class="dropdown-item" style="color: #1088FF;" (click)="logout()">Logout</a>
+          <li>
+            <a class="dropdown-item" style="color: #1088ff" (click)="logout()"
+              >Logout</a
+            >
           </li>
         </ul>
       </div>
