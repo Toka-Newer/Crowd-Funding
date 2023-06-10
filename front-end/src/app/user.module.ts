@@ -7,15 +7,16 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProjectModule } from './project.module';
+import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   {
     path: 'user',
-     canActivate:[],
+    canActivate: [AuthGuard],
     children: [
-      { path: 'details',component:UserDetailsComponent},
-      { path: 'donations',component:DonationsComponent},
-      { path: 'projects',component:UserProjectsComponent },
-      { path: 'edit',component:EditUserComponent },
+      { path: 'details', component: UserDetailsComponent },
+      { path: 'donations', component: DonationsComponent },
+      { path: 'projects', component: UserProjectsComponent },
+      { path: 'edit', component: EditUserComponent },
     ],
   },
 ];

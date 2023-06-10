@@ -65,7 +65,7 @@
           </div>
 
 
-          <button *ngIf="loggedUser?.id!==this.project?.user?.id" class="btn btn-danger w-100 fs-4 mb-1"
+          <button *ngIf="loggedUser?.id==this.project?.user?.id" class="btn btn-danger w-100 fs-4 mb-1"
             onclick="">Cancel</button>
           <h5>Donations</h5>
           <div class="donations-table  ">
@@ -93,24 +93,8 @@
   </div>
   <!-- 1111111111111111111111111 -->
   <div>
-    <div class="comments">
-      <div class="card">
-        <div class="card-header">
-          Featured
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="row border border-danger">
-      <h3 class="text-center mt-4">Similar Projects</h3>
-      <div *ngFor="let item of similarProjects" class="col-6">
-        <app-search-result [project]="item"></app-search-result>
-      </div>
-    </div>
+    <app-comments [comments]="project?.comments" [projectId]="this.project?.id" />
+    <div class="row ">
 
 
-  </div>
+    </div>

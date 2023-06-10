@@ -1,1 +1,80 @@
-<p>comments works!</p>
+<div class="comments">
+  <div class="card">
+    <div class="card-header">
+      Comments
+    </div>
+    <div class="card-body">
+      <div class="card-body">
+        <div *ngFor="let comment of comments" class="mb-3">
+          <div *ngIf="comment?.is_available==true" class="card">
+            <div class="card-header d-flex justify-content-between">
+              <span class="font-weight-bold">{{ comment.user }}</span>
+              <div class="d-flex align-items-center">
+
+                <span class="float-right">{{ comment.created_at | date:'short' }}</span>
+                <div class="dropdown">
+                  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        (click)="setReportComment(comment)">report</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              {{ comment.comment_message }}
+            </div>
+          </div>
+        </div>
+        <form [formGroup]="myform" (submit)="submit($event)">
+
+          <div class="form-group">
+
+            <div class="input-group flex-nowrap w-100 ">
+
+              <input type="text" class="form-control" id="value" [placeholder]="placeholder" formControlName="value"
+                required>
+              <button type="submit" class="input-group-text btn btn-outline-success " id="addon-wrapping">
+                <i class="bi bi-send">Send</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Report Comment</h1>
+        <button #closebtn type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="reportForm" (submit)="submitReport($event)">
+
+          <div class="form-group">
+
+            <p>user: {{reportComment?.user}}</p>
+            <p>{{reportComment?.comment_message}}</p>
+            <div class="input-group flex-nowrap w-100 ">
+              <input type="text" class="form-control" id="value" placeholder="type report message"
+                formControlName="report_message" required>
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit report</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

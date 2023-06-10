@@ -23,10 +23,11 @@
     <div *ngIf="projects?.search.length>0" class="container">
       <div class="m-5">
         <p class="text-success fs-5 fw-bold">{{projects.search.length}} search results</p>
-
-        <div *ngFor="let project of projects?.search">
-          <!-- product card -->
-          <app-search-result [project]="project" />
+        <div class="row">
+          <div class="col-md-4 my-2" *ngFor="let project of projects?.search">
+            <!-- product card -->
+            <app-search-result [project]="project" />
+          </div>
         </div>
       </div>
     </div>
