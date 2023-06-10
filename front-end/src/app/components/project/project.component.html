@@ -5,6 +5,7 @@
 
   <!-- 1111111111111111111111111 -->
   <h2 class="text-center p-2">{{this.project?.title}}</h2>
+
   <!-- 1111111111111111111111111 -->
   <div class="d-flex justify-content-center w-100 ">
     <!-- image slider -->
@@ -28,48 +29,34 @@
       </button>
     </div>
   </div>
+
   <!-- 1111111111111111111111111 -->
   <div class="d-flex justify-content-evenly align-items-center border border-secondary-subtle rounded w-100 mt-3">
     <div class="h-100 w-50" routerLink="/projects/{{this.project?.id}}">
-
       <!-- </div> -->
       <app-search-result [project]=" project" />
     </div>
     <div class=" w-25">
-
-
       <div class=" card ">
         <div class="card-body">
           <div class="mb-3">
             <form [formGroup]="form" (submit)="submit($event)" enctype="multipart/form-data">
               <label for="amount" class="form-label">Amount</label>
               <input min="5" formControlName="amount" type="number" class="form-control mb-2" id="amount">
-              <div *ngIf="
-                            this.getAmount.hasError('required') &&
-                            this.getAmount.touched
-                          " class="invalid-feedback d-block">amount is required
+              <div *ngIf="this.getAmount.hasError('required') && this.getAmount.touched"
+                class="invalid-feedback d-block">amount is required
               </div>
-              <div *ngIf="
-                        this.getAmount.hasError('pattern') &&
-                        this.getAmount.touched
-                      " class="invalid-feedback d-block">
+              <div *ngIf="this.getAmount.hasError('pattern') && this.getAmount.touched"
+                class="invalid-feedback d-block">
                 amount is not valid
-
               </div>
-
-
-
               <button class="btn btn-warning w-100 fs-4 mb-1" type="submit">Donate Now</button>
             </form>
-
           </div>
-
-
           <button *ngIf="loggedUser?.id==this.project?.user?.id" class="btn btn-danger w-100 fs-4 mb-1"
             onclick="">Cancel</button>
           <h5>Donations</h5>
-          <div class="donations-table  ">
-
+          <div class="donations-table">
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -88,13 +75,12 @@
         </div>
       </div>
     </div>
-
-
   </div>
+
   <!-- 1111111111111111111111111 -->
   <div>
     <app-comments [comments]="project?.comments" [projectId]="this.project?.id" />
-    <div class="row ">
-
-
+    <div class="row">
     </div>
+  </div>
+</div>
