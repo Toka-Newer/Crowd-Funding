@@ -13,4 +13,13 @@ export class ProjectCardComponent implements OnInit {
      this.project.images[i].url=environment.API_URL.concat(this.project.images[i].url)
     }
      }
+     transformWords(value:string,slice:number){
+    if (!value) {
+      return '';
+    }
+
+    const words = value.split(' ');
+    const limitedWords = words.slice(0, slice);
+    return limitedWords.join(' ');
+  }
 }
