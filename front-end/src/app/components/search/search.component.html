@@ -1,11 +1,12 @@
 <!-- Nav -->
 <div>
   <div>
-    <nav class="navbar bg-body-tertiary">
-      <div class="container-fluid mx-5">
+    <nav class="navbar bg-body-tertiary py-3">
+      <div class="container">
         <div>
-          <a class="navbar-brand fw-bold text-success fs-4" href="#">
-            <i class="bi bi-gift me-2"></i>Crowd Funding</a>
+          <!-- <a class="navbar-brand fw-bold text-success fs-4" href="#">
+            <i class="bi bi-gift me-2"></i>Crowd Funding</a> -->
+          <a class="navbar-brand fw-bold fs-4" href="#" style="color: #36B37E;" routerLink="/projects">Crowd Funding</a>
         </div>
         <form [formGroup]="myform" (submit)="submit($event)" class="d-flex w-75 me-5">
           <input class="form-control me-2" formControlName="value" type="search" [placeholder]="placeholder"
@@ -15,11 +16,8 @@
       </div>
     </nav>
   </div>
-
   <div>
-
     <!-- search result -->
-
     <div *ngIf="projects?.search.length>0" class="container">
       <div class="m-5">
         <p class="text-success fs-5 fw-bold">{{projects.search.length}} search results</p>
