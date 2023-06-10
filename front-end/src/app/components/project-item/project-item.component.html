@@ -8,14 +8,29 @@
   </div>
 </div> -->
 
-<div class="card w-100" routerLink="/projects/{{project.id}}">
-  <div style="position: relative;">
-    <img src="{{back_end_url+''+project?.images[0]?.url}}" class="card-img-top" alt="..." height="300px">
-    <div class="w-100"
-      style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+<div class="card w-100" routerLink="/projects/{{ project.id }}">
+  <div style="position: relative">
+    <img
+      src="{{ back_end_url + '' + project?.images[0]?.url }}"
+      class="card-img-top"
+      alt="..."
+      height="600px"
+      width="100%"
+      style="object-fit: cover"
+    />
+    <div
+      class="w-100"
+      style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      "
+    >
       <div class="card-content-container">
-        <h5 class="card-title">{{project.title}}</h5>
-        <p class="card-text">{{project.details}}</p>
+        <h5 class="card-title primaryColor fw-semibold">{{ project.title }}</h5>
+        <p class="card-text">{{ project.details }}</p>
       </div>
     </div>
   </div>

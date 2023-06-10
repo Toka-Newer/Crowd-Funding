@@ -1,16 +1,15 @@
 <div class="highest container my-5">
-
   <app-highest-projects [projects]="projects.slider" />
 </div>
-<div class="latest container">
-  <h2>Latest Projects</h2>
+<div class="latest container my-5">
+  <h2 class="fw-bold primaryColor my-4 text-center">Latest Projects</h2>
   <app-featured-projects [projects]="projects.latest" />
 </div>
-<div class="featured container">
-  <h2>Featured Projects</h2>
+<div class="featured container my-5">
+  <h2 class="fw-bold primaryColor my-4 text-center">Featured Projects</h2>
   <app-featured-projects [projects]="projects.featured" />
 </div>
-<div class="categories container">
-  <h2>Categories</h2>
+<div class="categories container my-5">
+  <h2 class="fw-bold primaryColor my-4 text-center">Categories</h2>
   <app-categories [categories]="projects.categories" />
 </div>

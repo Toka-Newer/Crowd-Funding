@@ -1,14 +1,12 @@
-<div class="card" routerLink="/projects/{{project.id}}">
-  <img src="{{ project.images[0]?.url}}" class="card-img-top" alt="..." />
+<div class="card">
+  <img src="{{ project.images[0]?.url }}" class="card-img-top" alt="..." />
   <div class="card-body">
-    <h5 class="card-title">{{project.title}}</h5>
-    <p class="card-text">{{project.details}}</p>
-    <!-- <a class="btn btn-dark mx-1"  >show Details</a> -->
-    <!-- <div class="col">
-      <div class="progress">
-        <div class="progress-bar bg-success" role="progressbar" [style.width.%]="100" [attr.aria-valuemin]="0"
-          [attr.aria-valuemax]="100" [attr.aria-valuenow]="(project.current_donations/project.target_donations)*100"></div>
-      </div>
-    </div> -->
+    <h5 class="card-title primaryColor fw-semibold">{{ project.title }}</h5>
+    <p class="card-text" style="height: 60px">
+      {{ transformWords(project.details, 10) + " ..." }}
+    </p>
+    <button routerLink="/projects/{{ project.id }}" class="btn primaryBtn">
+      Details
+    </button>
   </div>
 </div>
