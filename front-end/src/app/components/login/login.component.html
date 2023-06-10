@@ -1,48 +1,96 @@
-<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="height: 100vh"
+>
   <div class="container w-75">
-    <div class="card mb-3 mx-5 border-0" style="height: 450px; box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);">
+    <div
+      class="card mb-3 mx-5 border-0"
+      style="height: 450px; box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2)"
+    >
       <div class="row g-0">
         <div class="col-md-6">
-          <img src="https://images.pexels.com/photos/4386476/pexels-photo-4386476.jpeg?auto=compress&cs=tinysrgb&w=600"
-            class="img-fluid rounded-start object-fit-cover w-100" style="height: 450px;" alt="...">
+          <img
+            src="https://images.pexels.com/photos/4386476/pexels-photo-4386476.jpeg?auto=compress&cs=tinysrgb&w=600"
+            class="img-fluid rounded-start object-fit-cover w-100"
+            style="height: 450px"
+            alt="..."
+          />
         </div>
         <div class="col-md-6">
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title fw-normal my-4 pb-3 mx-auto">Sign Into Your Account</h5>
-            <form [formGroup]="form" (submit)="submit($event)" class="w-75 mx-auto">
+            <h5 class="card-title fw-normal my-4 pb-3 mx-auto">
+              Sign Into Your Account
+            </h5>
+            <form
+              [formGroup]="form"
+              (submit)="submit($event)"
+              class="w-75 mx-auto"
+            >
               <div class="mb-3">
                 <label for="UserName" class="form-label">User Name</label>
-                <input type="UserName" class="form-control shadow" id="UserName" formControlName="UserName" />
+                <input
+                  type="UserName"
+                  class="form-control shadow"
+                  id="UserName"
+                  formControlName="UserName"
+                />
                 <ng-container *ngIf="this.getUserName.touched">
-                  <div *ngIf="this.getUserName.hasError('required')" class="invalid-feedback d-block">
+                  <div
+                    *ngIf="this.getUserName.hasError('required')"
+                    class="invalid-feedback d-block"
+                  >
                     UserName is Required
                   </div>
-                  <div *ngIf="this.getUserName.hasError('UserName')" class="invalid-feedback d-block">
+                  <div
+                    *ngIf="this.getUserName.hasError('UserName')"
+                    class="invalid-feedback d-block"
+                  >
                     UserName is not valid
                   </div>
                 </ng-container>
               </div>
               <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control shadow" id="password" formControlName="password" />
+                <input
+                  type="password"
+                  class="form-control shadow"
+                  id="password"
+                  formControlName="password"
+                />
                 <ng-container *ngIf="this.getPassword.touched">
-                  <div *ngIf="this.getPassword.hasError('required')" class="invalid-feedback d-block">
+                  <div
+                    *ngIf="this.getPassword.hasError('required')"
+                    class="invalid-feedback d-block"
+                  >
                     Password is required
                   </div>
-                  <div *ngIf="this.getPassword.hasError('minlength')" class="invalid-feedback d-block">
+                  <div
+                    *ngIf="this.getPassword.hasError('minlength')"
+                    class="invalid-feedback d-block"
+                  >
                     Password is at least 8 characters
                   </div>
 
-                  <div *ngIf="this.getPassword.hasError('pattern')" class="invalid-feedback d-block">
-                    Password must contain uppercase lowercase and special character
+                  <div
+                    *ngIf="this.getPassword.hasError('pattern')"
+                    class="invalid-feedback d-block"
+                  >
+                    Password must contain uppercase lowercase and special
+                    character
                   </div>
                   <div *ngIf="this.errors" class="invalid-feedback d-block">
-                    {{this.errors[0]}}
+                    {{ this.errors[0] }}
                   </div>
                 </ng-container>
               </div>
               <div class="text-center w-100 mt-4 mb-2">
-                <button type="submit" class="btn w-100" style="background-color: #36B37E; color: #fff;">Login</button>
+                <button
+                  type="submit"
+                  class="btn w-100"
+                  style="background-color: #0d566a; color: #fff"
+                >
+                  Login
+                </button>
               </div>
               <p class="py-2">
                 Not A Member?

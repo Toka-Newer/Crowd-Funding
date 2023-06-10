@@ -3,3 +3,34 @@
 body{
   background-color: #F5F5F5;
 }
+.primaryColor {
+  color: #0d566a;
+
+}
+.primaryBtn {
+  color: #0d566a;
+  border-color: #0d566a;
+}
+
+.primaryBtn:hover {
+  color: #fff;
+  background-color: #0d566a;
+  border-color: #0d566a;
+}
+
+.primaryBtn:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.5);
+}
+
+.primaryBtn:active {
+  color: #fff;
+  background-color: #0d566a;
+  border-color: #0d566a;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.primaryBtn:disabled {
+  color: #0d566a;
+  background-color: transparent;
+  border-color: #0d566a;
+}
