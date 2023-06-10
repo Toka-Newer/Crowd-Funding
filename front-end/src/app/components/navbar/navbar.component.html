@@ -35,15 +35,17 @@
           <img src="{{ back_end_url+''+getImageUrl }}" alt="" class="profile-pic" />
         </a>
 
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu dropdown-menu-end">
           <li>
             <h5 class="dropdown-item text-capitalize border-bottom text-center pb-2">
               {{ this.loggedUser.username }}
             </h5>
           </li>
-          <li><a class="dropdown-item" style="color: #1088FF;" (click)="logout()">Logout</a>
+          <li>
+            <a class="dropdown-item" style="color: #1088FF;" (click)="logout()">Logout</a>
           </li>
         </ul>
+
       </div>
     </div>
   </div>

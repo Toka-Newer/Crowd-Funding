@@ -84,3 +84,84 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="d-flex flex-wrap justify-content-between my-5">
+    <h1 class="row text-capitalize py-3">{{this.project?.title}}</h1>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="h-100 w-100" routerLink="/projects/{{this.project?.id}}">
+          <!-- </div> -->
+          <app-search-result [project]=" project" />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <div>
+                <p class="card-text d-flex flex-wrap justify-content-between">
+
+                  <small><span class="fs-4">{{project?.current_donations|currency}}</span>
+                    <span class="text-muted">
+                      Raised · {{project?.target_donations|currency}} Target
+                    </span></small>
+                </p>
+                <div class="d-flex flex-column w-100 my-2 ms-1 me-5">
+                  <div class="progress w-100" style="height: 6px;">
+                    <div [ngClass]="{
+                      'progress-bar bg-warning': percentComplete(project) < 50,
+                      'progress-bar bg-primary': percentComplete(project) >= 50 && percentComplete(project) < 100,
+                      'progress-bar bg-success': percentComplete(project) === 100
+                    }" role="progressbar" [style.width.%]="percentComplete(project)"
+                      [attr.aria-valuenow]="percentComplete(project)" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="d-flex justify-content-end mt-2">
+                    <div class="text-muted">
+                      {{ transformDuration(project?.end_date, project?.start_date) }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <form [formGroup]="form" (submit)="submit($event)" enctype="multipart/form-data">
+                  <label for="amount" class="form-label">Enter Amount To Donate</label>
+                  <input min="5" formControlName="amount" type="number" class="form-control mb-2" id="amount"
+                    placeholder="Amount to Donate">
+                  <div *ngIf="this.getAmount.hasError('required') && this.getAmount.touched"
+                    class="invalid-feedback d-block">amount is required
+                  </div>
+                  <div *ngIf="this.getAmount.hasError('pattern') && this.getAmount.touched"
+                    class="invalid-feedback d-block">
+                    amount is not valid
+                  </div>
+                  <button class="btn btn-outline-primary w-100 fs-5 py-2" type="submit">Donate Now</button>
+                </form>
+              </div>
+              <button *ngIf="loggedUser?.id==this.project?.user?.id" class="btn btn-danger w-100 fs-4 mb-1"
+                onclick="">Cancel</button>
+              <h5>Donations</h5>
+              <div class="donations-table">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">User</th>
+                      <th scope="col">Amount Donated</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of this.project?.donations">
+                      <td class="text-capitalize">{{item.user}}</td>
+                      <td>{{item.amount}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

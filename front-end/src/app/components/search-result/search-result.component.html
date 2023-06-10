@@ -41,7 +41,8 @@
   <img src="{{back_end_url+''+project?.images[0]?.url}}" class="card-img-top" alt="..." style="height: 300px;">
   <div class="card-body">
     <h5 class="card-title text-capitalize">{{project?.title}}</h5>
-    <p class="card-text mb-1">{{transformWords(project?.details,10)+' ...'}}</p>
+    <!-- <p class="card-text mb-1">{{transformWords(project?.details,10)+' ...'}}</p> -->
+    <p class="card-text mb-1">{{project?.details}}</p>
     <p class="card-text"><small class="text-muted">{{project?.user.username | titlecase}}</small></p>
     <p class="card-text d-flex flex-wrap justify-content-between">
       {{project?.current_donations|currency}} Raised · {{project?.target_donations|currency}} Target

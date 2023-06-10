@@ -3,8 +3,12 @@
   object-fit: cover;
 }
 
-.donations-table{
+.donations-table {
   height: 25vh;
   overflow-y: scroll;
   /* position: sticky; */
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

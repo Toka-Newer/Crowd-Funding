@@ -10,64 +10,86 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
-  private  id:Number=Number(this.activatedRoute.snapshot.paramMap.get('id'));
+  private id: Number = Number(this.activatedRoute.snapshot.paramMap.get('id'));
 
   back_end_url: any = environment.API_URL
-  constructor(private projectService:ProjectService,private activatedRoute: ActivatedRoute){}
-  
+  constructor(private projectService: ProjectService, private activatedRoute: ActivatedRoute) { }
 
-  data:any=null
-  project:any=null
-  similarProjects:any
-  progress:any
-  urls:String[]=[]
-  loggedUser:any
-  validDonation:boolean=false
+
+  data: any = null
+  project: any = null
+  similarProjects: any
+  progress: any
+  urls: String[] = []
+  loggedUser: any
+  validDonation: boolean = false
   form: FormGroup = new FormGroup({
     amount: new FormControl(5, [Validators.required, Validators.pattern('[0-9]+')])
   })
-  ngOnInit():void {
+  ngOnInit(): void {
     this.projectService.getProjectById(this.id).subscribe(
       {
-        next:(res)=>{
-          this.data=res
-          this.project=this.data.project
-          this.similarProjects=this.data.similar_projects
+        next: (res) => {
+          this.data = res
+          this.project = this.data.project
+          this.similarProjects = this.data.similar_projects
           console.log(this.project);
           // for(let i=0;i<this.project.images.length;i++){
           //   this.project.images[i].url=environment.API_URL.concat(this.project.images[i].url)
-        // }
-        this.loggedUser=localStorage.getItem('user')
+          // }
+          this.loggedUser = localStorage.getItem('user')
         },
-        error:(err)=>{
+        error: (err) => {
           console.log(err);
         }
       }
     )
 
   }
-  donate(){
+  donate() {
 
   }
-  get getAmount(){
+  get getAmount() {
     return this.form.controls['amount']
   }
-  submit(e:any){
+  submit(e: any) {
     e.preventDefault();
     if (this.form.status == 'VALID') {
-      console.log({project:this.project.id,amount:this.getAmount.value});
-this.projectService.donate({project:this.project.id,amount:this.getAmount.value}).subscribe({
-  next:(res)=>{
-    this.validDonation=true
-    console.log(res);
-  },
-  error:(err)=>{
-    console.log(err);
+      console.log({ project: this.project.id, amount: this.getAmount.value });
+      this.projectService.donate({ project: this.project.id, amount: this.getAmount.value }).subscribe({
+        next: (res) => {
+          this.validDonation = true
+          console.log(res);
+        },
+        error: (err) => {
+          console.log(err);
 
-  }
-})
+        }
+      })
     }
   }
 
+  transformDuration(end: any, start: any) {
+    const duration = Math.floor((new Date(end).getTime() - new Date(start).getTime()));
+    const seconds = Math.floor(duration / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    if (days > 0) {
+      return `${days} day(s)`;
+    } else if (hours > 0) {
+      return `${hours} hour(s)`;
+    } else if (minutes > 0) {
+      return `${minutes} minute(s)`;
+    } else {
+      return `${seconds} second(s)`;
+    }
   }
+
+  percentComplete(project: any) {
+    return parseFloat(((project.current_donations / project.target_donations) * 100).toFixed(3))
+  }
+
+}
 
