@@ -20,18 +20,6 @@ def home(request):
     return render(request,'api/home.html') 
 
 class Home(APIView):    
-    """
-    ######################  Home Page #####################################
-    
-    1- A slider to show the highest five rated running projects to encourage
-        users to donate
-    2- List of the latest 5 projects
-    3- List of latest 5 featured projects (which are selected by the admin)
-    4- A list of the categories. User can open each category to view its
-        projects
-    5- Search bar that enables users to search projects by title or tag
-    """
-    
     
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticatedOrReadOnly]
@@ -132,7 +120,6 @@ class ProjectList(APIView):
     def post(self,request):
         
         # set user in request data from token 
-        # request.data['user']=request.user.id
         data = request.data.copy()
         data['user'] = request.user.id
         # creation serializer
