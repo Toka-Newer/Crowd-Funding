@@ -121,7 +121,7 @@
                 <div class="mb-3">
                   <form [formGroup]="form" (submit)="submit($event)" enctype="multipart/form-data">
                     <label for="amount" class="form-label">Enter Amount To Donate</label>
-                    <input min="5" formControlName="amount" type="number" class="form-control mb-2" id="amount"
+                    <input min="5" formControlName="amount" type="number" class="form-control" id="amount"
                       placeholder="Amount to Donate">
                     <div *ngIf="this.getAmount.hasError('required') && this.getAmount.touched"
                       class="invalid-feedback d-block">amount is required
@@ -130,10 +130,13 @@
                       class="invalid-feedback d-block">
                       amount is not valid
                     </div>
-                    <div *ngIf="this.validDonation && this.getAmount.touched" class="text-success d-block">
+                    <div *ngIf="this.validDonation && this.getAmount.touched"
+                      class="primaryColor fs-5 float-end d-block text-capitalize">
                       donation done
                     </div>
-                    <button class="btn w-100 fs-5 py-2 primaryBtn" type="submit">Donate Now</button>
+                    <button class="btn w-100 fs-5 py-2 primaryBtn mt-3" type="submit">
+                      Donate Now
+                    </button>
                   </form>
                 </div>
                 <button *ngIf="loggedUser?.id==this.project?.user?.id" class="btn btn-danger w-100 fs-4 mb-1"
