@@ -1,7 +1,7 @@
 <div class="card">
   <img src="{{ project.images[0]?.url }}" class="card-img-top" alt="..." />
   <div class="card-body">
-    <h5 class="card-title primaryColor fw-semibold">{{ project.title }}</h5>
+    <h5 class="card-title primaryColor fw-semibold" style="height: 30px">{{ project.title }}</h5>
     <p class="card-text" style="height: 60px">
       {{ transformWords(project.details, 10) + " ..." }}
     </p>

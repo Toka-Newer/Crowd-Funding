@@ -23,6 +23,8 @@ export class ProjectComponent implements OnInit {
   urls: String[] = []
   loggedUser: any
   validDonation: boolean = false
+  targetDonations: any
+  userRate: any;
   form: FormGroup = new FormGroup({
     amount: new FormControl(5, [Validators.required, Validators.pattern('[0-9]+')])
   })
@@ -30,21 +32,22 @@ export class ProjectComponent implements OnInit {
     this.projectService.getProjectById(this.id).subscribe(
       {
         next: (res) => {
+          this.loggedUser = localStorage.getItem('user')
+          this.loggedUser = JSON.parse(this.loggedUser)
           this.data = res
           this.project = this.data.project
           this.similarProjects = this.data.similar_projects
-          console.log(this.project);
-          // for(let i=0;i<this.project.images.length;i++){
-          //   this.project.images[i].url=environment.API_URL.concat(this.project.images[i].url)
-          // }
-          this.loggedUser = localStorage.getItem('user')
+          this.targetDonations = 0.25 * this.project.target_donations
+          this.userRate = this.data?.project?.ratings?.filter((element: any) => {
+            return element.user === this.loggedUser.id
+          })[0];
+          console.log(this.userRate);
         },
         error: (err) => {
           console.log(err);
         }
       }
     )
-
   }
   donate() {
 

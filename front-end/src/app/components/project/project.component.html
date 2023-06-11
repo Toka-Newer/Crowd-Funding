@@ -85,7 +85,6 @@
       <div class="row">
         <div class="col-md-8">
           <div class="h-100 w-100" routerLink="/projects/{{this.project?.id}}">
-            <!-- </div> -->
             <app-search-result [project]=" project" />
           </div>
         </div>
@@ -94,6 +93,11 @@
             <div class="card">
               <div class="card-body">
                 <div>
+                  <div class="d-flex justify-content-between mb-3">
+                    <h4 class="mt-1">Rate Project</h4>
+                    <app-rate *ngIf="this.project" [id]="this.project?.id" [userRate]="this.userRate"
+                      [isReadonly]="false" />
+                  </div>
                   <p class="card-text d-flex flex-wrap justify-content-between">
 
                     <small><span class="fs-4">{{project?.current_donations|currency}}</span>
@@ -139,21 +143,21 @@
                     </button>
                   </form>
                 </div>
-                <button *ngIf="loggedUser?.id==this.project?.user?.id" class="btn btn-danger w-100 fs-4 mb-1"
-                  onclick="">Cancel</button>
+                <!-- <button *ngIf="loggedUser?.id==this.project?.user?.id" class="btn btn-danger w-100 fs-4 mb-1"
+                  onclick="">Cancel</button> -->
                 <h5>Donations</h5>
                 <div class="donations-table">
                   <table class="table table-striped">
-                    <thead>
+                    <!-- <thead>
                       <tr>
                         <th scope="col">User</th>
                         <th scope="col">Amount Donated</th>
                       </tr>
-                    </thead>
+                    </thead> -->
                     <tbody>
                       <tr *ngFor="let item of this.project?.donations">
                         <td class="text-capitalize">{{item.user}}</td>
-                        <td>{{item.amount}}</td>
+                        <td>{{item.amount | currency}}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -166,9 +170,19 @@
     </div>
   </div>
 
-  <!-- <div class="mb-5">
-    <app-comments [comments]="project?.comments" [projectId]="this.project?.id" />
+  <div>
+    <!-- <div class="mt-3">
+      <app-comments [comments]="project?.comments" [projectId]="this.project?.id" />
+    </div> -->
+    <div class="border"></div>
+
     <div class="row">
+      <h2 class="text-center my-4 primaryColor">Similar Projects</h2>
+      <div class="row">
+        <div *ngFor="let item of similarProjects" class="col-md-6 my-2">
+          <app-search-result [project]="item"></app-search-result>
+        </div>
+      </div>
     </div>
-  </div> -->
+  </div>
 </div>

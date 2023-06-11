@@ -7,10 +7,10 @@ import { environment } from 'src/environments/environment';
 })
 export class ProjectService {
 
-  private baseUrl:string=`${environment.API_URL}/api`
+  private baseUrl: string = `${environment.API_URL}/api`
   private projects: any;
-  constructor(private http:HttpClient) {}
-  getAllProjects(){
+  constructor(private http: HttpClient) { }
+  getAllProjects() {
     return this.http.get(`${this.baseUrl}/home`)
   }
 
@@ -23,21 +23,27 @@ export class ProjectService {
   }
   headers = new HttpHeaders().set('Content-Type', 'multipart/form-data');
 
-  getProjectById(ProjectId:Number){
+  getProjectById(ProjectId: Number) {
     return this.http.get(`${this.baseUrl}/projects/${ProjectId}`)
   }
-  addProject(Project:any){
+  addProject(Project: any) {
     console.log(Project)
-    return this.http.post(`${this.baseUrl}/projects`,Project)
+    return this.http.post(`${this.baseUrl}/projects`, Project)
   }
-  editProject(id:any,Project:any){
-    return this.http.put(`${this.baseUrl}/${id}`,Project)
+  editProject(id: any, Project: any) {
+    return this.http.put(`${this.baseUrl}/${id}`, Project)
   }
-  deleteProject(id:any){
+  deleteProject(id: any) {
     return this.http.delete(`${this.baseUrl}/${id}`)
   }
-  donate(donation:any){
-    return this.http.post(`${this.baseUrl}/donations`,donation)
+  donate(donation: any) {
+    return this.http.post(`${this.baseUrl}/donations`, donation)
+  }
+  rate(id: number, rate: number) {
+    return this.http.post(`${this.baseUrl}/rates`, { project: id, rate })
+  }
+  rateUpdate(id: number, projectid: number, rate: number) {
+    return this.http.put(`${this.baseUrl}/rates/${id}`, { project: projectid, rate })
   }
   // rate(id:any){
   //   return this.http
