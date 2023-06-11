@@ -2,46 +2,24 @@
 <div class="d-flex justify-content-center align-items-center">
   <div class="login-form container my-5 w-75">
     <div class="card border-0" style="box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2)">
-      <form
-        [formGroup]="form"
-        (submit)="submit($event)"
-        enctype="multipart/form-data"
-        class="p-5"
-      >
+      <form [formGroup]="form" (submit)="submit($event)" enctype="multipart/form-data" class="p-5">
         <div class="mb-3">
           <div class="username mt-4 mb-3">
             <label for="text" class="form-label">User Name</label>
-            <input
-              type="name"
-              class="form-control"
-              id="username"
-              formControlName="username"
-              [attr.disabled]="
+            <input type="name" class="form-control" id="username" formControlName="username" [attr.disabled]="
                 form.get('username')?.disabled ? 'disabled' : null
-              "
-            />
+              " />
           </div>
 
           <div class="email mt-4 mb-3">
             <label for="email" class="form-label">Email address</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              formControlName="email"
-              [attr.disabled]="form.get('email')?.disabled ? 'disabled' : null"
-            />
+            <input type="email" class="form-control" id="email" formControlName="email"
+              [attr.disabled]="form.get('email')?.disabled ? 'disabled' : null" />
             <ng-container *ngIf="this.getEmail.touched">
-              <div
-                *ngIf="this.getEmail.hasError('required')"
-                class="invalid-feedback d-block"
-              >
+              <div *ngIf="this.getEmail.hasError('required')" class="invalid-feedback d-block">
                 Email is Required
               </div>
-              <div
-                *ngIf="this.getEmail.hasError('email')"
-                class="invalid-feedback d-block"
-              >
+              <div *ngIf="this.getEmail.hasError('email')" class="invalid-feedback d-block">
                 Email is not valid
               </div>
               <!-- <div *ngIf="this.errors?.email" class="invalid-feedback d-block">
@@ -52,12 +30,7 @@
 
           <div class="firstname mt-4 mb-3">
             <label for="fisrtname" class="form-label">First Name</label>
-            <input
-              type="name"
-              class="form-control"
-              id="fisrtname"
-              formControlName="firstName"
-            />
+            <input type="name" class="form-control" id="fisrtname" formControlName="firstName" />
             <ng-container *ngIf="this.getFirstName.touched">
               <!-- <div
                 *ngIf="this.getFirstName.hasError('required')"
@@ -73,12 +46,7 @@
 
           <div class="lastname mt-4 mb-3">
             <label for="lastName" class="form-label">Last Name</label>
-            <input
-              type="name"
-              class="form-control"
-              id="lastname"
-              formControlName="lastName"
-            />
+            <input type="name" class="form-control" id="lastname" formControlName="lastName" />
             <ng-container *ngIf="this.getLastName.touched">
               <!-- <div
                 *ngIf="this.getLastName.hasError('required')"
@@ -94,12 +62,7 @@
 
           <div class="mobile mt-4 mb-3">
             <label for="mobile" class="form-label">Phone</label>
-            <input
-              type="text"
-              class="form-control"
-              id="mobile"
-              formControlName="mobile"
-            />
+            <input type="text" class="form-control" id="mobile" formControlName="mobile" />
             <!-- <ng-container *ngIf="getMobile.touched">
               <div
                 *ngIf="getMobile.hasError('required')"
@@ -127,12 +90,7 @@
 
           <div class="birth_date mt-4 mb-3">
             <label for="birth_date" class="form-label">Birth Date </label>
-            <input
-              type="date"
-              class="form-control"
-              id="birth_date"
-              formControlName="birth_date"
-            />
+            <input type="date" class="form-control" id="birth_date" formControlName="birth_date" />
             <!-- <ng-container *ngIf="this.getBirth_date.touched">
               <div
                 *ngIf="this.getBirth_date.hasError('required')"
@@ -156,19 +114,10 @@
           </div>
 
           <div class="facebook-profile mt-4 mb-3">
-            <label for="facebook_profile" class="form-label"
-              >Facebook Profile
+            <label for="facebook_profile" class="form-label">Facebook Profile
             </label>
-            <input
-              type="text"
-              class="form-control"
-              id="facebook_profile"
-              formControlName="facebook_profile"
-            />
-            <div
-              *ngIf="getFacebook_profile.invalid && getFacebook_profile.touched"
-              class="invalid-feedback d-block"
-            >
+            <input type="text" class="form-control" id="facebook_profile" formControlName="facebook_profile" />
+            <div *ngIf="getFacebook_profile.invalid && getFacebook_profile.touched" class="invalid-feedback d-block">
               <!-- <div
                 *ngIf="
                   getFacebook_profile.errors &&
@@ -181,15 +130,10 @@
           </div>
 
           <div class="counrty mt-4 mb-3">
-            <label for="country" class="form-label custom-label"
-              >Country
+            <label for="country" class="form-label custom-label">Country
             </label>
             <select name="counrty" class="form-control" id="counrty">
-              <option
-                value="0"
-                label="Select a country ... "
-                selected="selected"
-              >
+              <option value="0" label="Select a country ... " selected="selected">
                 Select a country ...
               </option>
               <optgroup id="country-optgroup-Africa" label="Africa">
@@ -387,10 +331,7 @@
                 <option value="PS" label="Palestinian Territories">
                   Palestinian Territories
                 </option>
-                <option
-                  value="YD"
-                  label="People's Democratic Republic of Yemen"
-                >
+                <option value="YD" label="People's Democratic Republic of Yemen">
                   People's Democratic Republic of Yemen
                 </option>
                 <option value="PH" label="Philippines">Philippines</option>
@@ -539,10 +480,7 @@
                 <option value="SB" label="Solomon Islands">
                   Solomon Islands
                 </option>
-                <option
-                  value="GS"
-                  label="South Georgia and the South Sandwich Islands"
-                >
+                <option value="GS" label="South Georgia and the South Sandwich Islands">
                   South Georgia and the South Sandwich Islands
                 </option>
                 <option value="TK" label="Tokelau">Tokelau</option>
@@ -561,12 +499,7 @@
 
           <div class="file mt-4 mb-3">
             <label for="formFile" class="form-label">Avatar</label>
-            <input
-              class="form-control"
-              type="file"
-              id="formFile"
-              (change)="readUrl($event)"
-            />
+            <input class="form-control" type="file" id="formFile" (change)="readUrl($event)" />
             <!-- <ng-container>
               <div
                 *ngIf="
@@ -605,11 +538,8 @@
         </div>
 
         <div class="mt-4 w-100">
-          <button
-            type="submit"
-            class="btn btn-primary w-25 float-end border-0 shadow"
-            style="background-color: #0d566a; color: #fff"
-          >
+          <button type="submit" class="btn btn-primary w-25 float-end border-0 shadow"
+            style="background-color: #0d566a; color: #fff">
             Edit User
           </button>
         </div>

@@ -19,7 +19,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { AuthGuard } from './guards/auth.guard';
-
+import { RateComponent } from './components/rate/rate.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { RatingModule } from 'ngx-bootstrap/rating';
 
 const routes: Routes = [
   {
@@ -53,6 +56,7 @@ const routes: Routes = [
     EditProjectComponent,
     SearchResultComponent,
     CommentsComponent,
+    RateComponent,
   ],
   imports: [
     FormsModule,
@@ -61,6 +65,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forRoot(routes),
+    MatIconModule,
+    MatTooltipModule,
+    RatingModule.forRoot()
   ],
   exports: [
     SearchResultComponent,

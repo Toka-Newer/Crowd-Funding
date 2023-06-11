@@ -1,4 +1,7 @@
 .category:hover {
-  border: 1px solid #0d566a;
-    cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.category {
+  transition: ease-in 0.3s;
 }
