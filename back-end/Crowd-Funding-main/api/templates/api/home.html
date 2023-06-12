@@ -1,125 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crowdfunding API</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
 
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+      }
 
-<body class="bg-gray-100">
-    <header class="bg-white py-8 px-4 sm:px-6 lg:px-8">
-        <nav class="flex justify-center">
-            <ul class="flex">
-                <li class="mr-6">
-                    <a href="#" class="text-gray-600 hover:text-gray-800">Home</a>
-                </li>
-                <li class="mr-6">
-                    <a href="#" class="text-gray-600 hover:text-gray-800">About</a>
-                </li>
-                <li>
-                    <a href="#" class="text-gray-600 hover:text-gray-800">Contact</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="mt-10 flex flex-col items-center">
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
 
-            <h1 class="text-4xl leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none sm:mb-12 md:text-4xl lg:text-6xl">
-                Crowdfunding API</h1>
-            <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                Get
-                access to the best crowdfunding API and start your fundraising campaign today!</p>
-        </div>
-        <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-center">
-            <div class="rounded-md shadow">
-                <a href="#"
-                    class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
-                    Get started
-                </a>
-            </div>
-        </div>
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      nav ul li {
+        display: inline;
+        margin-right: 20px;
+      }
+
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin-bottom: 10px;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .feature {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+      }
+
+      .feature svg {
+        width: 40px;
+        height: 40px;
+        fill: #333;
+        margin-right: 10px;
+      }
+
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      footer p {
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <h1>Crowdfunding API</h1>
+      <p>
+        Get access to the best crowdfunding API and start your fundraising
+        campaign today!
+      </p>
+      <a
+        href="#"
+        style="
+          padding: 10px 20px;
+          background-color: #333;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 4px;
+        "
+        >Get started</a
+      >
     </header>
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <section class="m-10">
-            <h2 class="text-3xl leading-8 font-extrabold text-gray-900 sm:text-4xl sm:leading-10 mb-6">Features</h2>
-            <div class="mt-6 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                <div class="flex">
-                    <div class="flex-shrink-0">
-                        <svg class="h-6 w-6 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                    </div>
-                    <div class="ml-3">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">Easy integration</h3>
-                        <p class="mt-2 text-base leading-6 text-gray-500">Our crowdfunding API can be easily integrated
-                            with your website or app.</p>
-                    </div>
-                </div>
-                <div class="flex">
-                    <div class="flex-shrink-0">
-                        <svg class="h-6 w-6 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line points="12 20 12 10"></line>
-                            <line points="12 4 12 4"></line>
-                            <line points="22 20 2 20"></line>
-                        </svg>
-                    </div>
-                    <div class="ml-3">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">Secure payment processing</h3>
-                        <p class="mt-2 text-base leading-6 text-gray-500">Our crowdfunding API offers secure payment
-                            processing for your donors.</p>
-                    </div>
-                </div>
-                <div class="flex">
-                    <div class="flex-shrink-0">
-                        <svg class="h-6 w-6 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
-                            <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
-                            <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
-                            <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
-                        </svg>
-                    </div>
-                    <div class="ml-3">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">Real-time analytics</h3>
-                        <p class="mt-2 text-base leading-6 text-gray-500">Our crowdfunding API provides real-time
-                            analytics and reporting to help you track your campaign progress.</p>
-                    </div>
-                </div>
-                <div class="flex">
-                    <div class="flex-shrink-0">
-                        <svg class="h-6 w-6 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                    </div>
-                    <div class="ml-3">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">Customizable reward tiers</h3>
-                        <p class="mt-2 text-base leading-6 text-gray-500">Our crowdfunding API allows you to create
-                            customizable reward tiers for your donors.</p>
-                    </div>
-                </div>
+    <main>
+      <section>
+        <h2>Features</h2>
+        <div class="features">
+          <div class="feature">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <div>
+              <h3>Easy setup</h3>
+              <p>
+                Our crowdfunding API is easy to set up and get started with.
+              </p>
             </div>
-        </section>
-        <section class="m-10">
-            <h2 class="text-3xl leading-8 font-extrabold text-gray-900 sm:text-4xl sm:leading-10 mb-6">How it works</h2>
-            <ol class="list-decimal text-base leading-6 text-gray-500">
-                <li class="mt-4">Sign up for an API key</li>
-                <li class="mt-4">Integrate the API with your website or app</li>
-                <li class="mt-4">Set up your campaign and reward tiers</li>
-                <li class="mt-4">Start accepting donations!</li>
-            </ol>
-        </section>
+          </div>
+          <div class="feature">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <div>
+              <h3>Customizable reward tiers</h3>
+              <p>
+                Our crowdfunding API allows you to create customizable reward
+                tiers for your donors.
+              </p>
+            </div>
+          </div>
+          <div class="feature">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <line points="12 20 12 10"></line>
+              <line points="12 4 12 4"></line>
+              <line points="22 20 2 20"></line>
+            </svg>
+            <div>
+              <h3>Secure payment processing</h3>
+              <p>
+                Our crowdfunding API offers secure payment processing for your
+                donors.
+              </p>
+            </div>
+          </div>
+          <div class="feature">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+              <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+              <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+              <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+            </svg>
+            <div>
+              <h3>Real-time analytics</h3>
+              <p>
+                Our crowdfunding API provides real-time analytics and reporting
+                to help you track your campaign progress.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>How it works</h2>
+        <ol>
+          <li>Sign up for an API key</li>
+          <li>Integrate the API with your website or app</li>
+          <li>Set up your campaign and reward tiers</li>
+          <li>Start accepting donations!</li>
+        </ol>
+      </section>
     </main>
-    <footer class="bg-gray-800 py-8 px-4 sm:px-6 lg:px-8">
-        <p class="text-center text-gray-500 text-sm">© 2023 Crowdfunding API. All rights reserved.</p>
+    <footer>
+      <p>© 2023 Crowdfunding API. All rights reserved.</p>
     </footer>
-</body>
-
+  </body>
 </html>

@@ -21,7 +21,7 @@ from django.conf import settings
 from django.shortcuts import render ,redirect
 
 def home(request):
-    return redirect('api/dummy') 
+    return redirect('api/template') 
 # render(request=request,template_name='home.html')
 urlpatterns = [
     path('', home),
