@@ -13,10 +13,7 @@ export class DeleteModalComponent {
   errors: any | undefined;
   form: FormGroup = new FormGroup({
     password: new FormControl('', [
-      Validators.required,
-      // Validators.pattern(
-      //   "^S*(?=S{8,})(?=S*[a-z])(?=S*[A-Z])(?=S*[d])(?=S*[W])S*$"
-      // ),
+      Validators.required
     ]),
   });
   constructor(private userService: UserService, private router: Router) { }
@@ -27,7 +24,6 @@ export class DeleteModalComponent {
 
   deleteProfile(e: Event) {
     e.preventDefault();
-    console.log(this.form);
     if (this.form.status == 'VALID') {
       this.userService.deleteProfile(this.getPassword.value).subscribe(
         {

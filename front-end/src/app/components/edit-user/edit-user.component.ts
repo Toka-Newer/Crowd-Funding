@@ -25,11 +25,10 @@ export class EditUserComponent implements OnInit {
       Validators.pattern('^(011|012|010)([0-9]+){8,11}$'),
     ]),
     image: new FormControl(null, [
-      Validators.required,
-      // imageValidator(1000000,['jpg','jpeg','png'])
+      Validators.required
     ]),
     birth_date: new FormControl('', []),
-    facebook_profile: new FormControl('', []),
+    // facebook_profile: new FormControl('', []),
     counrty: new FormControl('', []),
   });
 
@@ -38,8 +37,8 @@ export class EditUserComponent implements OnInit {
   ngOnInit() {
     this.editUser.fetchData().subscribe({
       next: (res: any) => {
-        console.log(this.data)
-        console.log("Response : ", res);
+        // console.log(this.data)
+        // console.log("Response : ", res);
         this.form.patchValue({
           email: res.email,
           username: res.username,
@@ -48,7 +47,7 @@ export class EditUserComponent implements OnInit {
           mobile: res.phone,
           birth_date: res.birth_date,
           counrty: res.counrty,
-          facebook_profile: res.facebook_profile,
+          // facebook_profile: res.facebook_profile,
           // and so on for other form controls
         });
         console.log("Form : ", this.form);
@@ -60,9 +59,9 @@ export class EditUserComponent implements OnInit {
         this.errors = err.error;
       },
     });
-    this.form.get('facebook_profile')?.setValidators([
-      Validators.pattern(/^(https?:\/\/)?(www\.)?facebook\.com\/[a-zA-Z0-9(\.\?)?]/)
-    ]);
+    // this.form.get('facebook_profile')?.setValidators([
+    //   Validators.pattern(/^(https?:\/\/)?(www\.)?facebook\.com\/[a-zA-Z0-9(\.\?)?]/)
+    // ]);
   }
 
 
@@ -103,9 +102,9 @@ export class EditUserComponent implements OnInit {
   get getBirth_date() {
     return this.form.controls['birth_date'];
   }
-  get getFacebook_profile() {
-    return this.form.controls['facebook_profile'];
-  }
+  // get getFacebook_profile() {
+  //   return this.form.controls['facebook_profile'];
+  // }
   get getCounrty() {
     return this.form.controls['counrty'];
   }
@@ -132,9 +131,9 @@ export class EditUserComponent implements OnInit {
       if (this.getBirth_date.value) {
         this.data.append('birth_date', this.getBirth_date.value);
       }
-      if (this.getFacebook_profile.value) {
-        this.data.append('facebook_profile', this.getFacebook_profile.value);
-      }
+      // if (this.getFacebook_profile.value) {
+      //   this.data.append('facebook_profile', this.getFacebook_profile.value);
+      // }
       if (this.getCounrty.value) {
         this.data.append('counrty', this.getCounrty.value);
       }
@@ -143,17 +142,17 @@ export class EditUserComponent implements OnInit {
       this.data.append('first_name', this.getFirstName.value);
       this.data.append('last_name', this.getLastName.value);
 
-      console.log(this.data)
+      // console.log(this.data)
 
       this.editUser.editData(this.data).subscribe({
         next: (res: any) => {
-          console.log(this.data)
-          console.log(res);
+          // console.log(this.data)
+          // console.log(res);
           this.router.navigate(['/user/details']);
         },
         error: (err) => {
-          console.log(this.data)
-          console.log(err);
+          // console.log(this.data)
+          // console.log(err);
           this.errors = err.error;
         },
       });
