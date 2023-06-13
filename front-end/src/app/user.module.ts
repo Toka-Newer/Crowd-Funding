@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProjectModule } from './project.module';
 import { AuthGuard } from './guards/auth.guard';
+import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 const routes: Routes = [
   {
     path: 'user',
@@ -27,6 +28,7 @@ const routes: Routes = [
     UserDetailsComponent,
     UserProjectsComponent,
     EditUserComponent,
+    DeleteModalComponent,
   ],
   imports: [
     CommonModule,

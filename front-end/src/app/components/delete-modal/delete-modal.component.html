@@ -1,0 +1,49 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Delete
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Are you Sure </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="form" (submit)="deleteProfile($event)">
+        <div class="modal-body">
+          This Action will delete you account and projects permenantly
+
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Password</label>
+            <input type="password" formControlName="password" class="form-control" id="exampleInputEmail1"
+              aria-describedby="emailHelp">
+          </div>
+
+          <ng-container *ngIf="this.getPassword.touched">
+            <div *ngIf="this.getPassword.hasError('required')" class="invalid-feedback d-block">
+              Password is required
+            </div>
+            <div *ngIf="this.getPassword.hasError('minlength')" class="invalid-feedback d-block">
+              Password is at least 8 characters
+            </div>
+
+            <div *ngIf="this.getPassword.hasError('pattern')" class="invalid-feedback d-block">
+              Password must contain uppercase lowercase and special character
+            </div>
+            <div *ngIf="this.errors" class="invalid-feedback d-block">
+              {{this.errors.message}}
+            </div>
+          </ng-container>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" type="submit">Confirm</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

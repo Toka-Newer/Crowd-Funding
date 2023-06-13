@@ -6,9 +6,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl:string=`${environment.API_URL}/api`
+  private baseUrl: string = `${environment.API_URL}/api`
   private users: any;
-  constructor(private http:HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   setData(data: any) {
     this.users = data;
@@ -18,10 +18,22 @@ export class UserService {
     return this.users;
   }
 
-  getUserDonations(userid:number):any{
+  getUserDonations(userid: number): any {
     return this.http.get(`${this.baseUrl}/profile/${userid}/donations`)
   }
-  getUserProjects(userid:number):any{
+  getUserProjects(userid: number): any {
     return this.http.get(`${this.baseUrl}/profile/${userid}/projects`)
+  }
+
+  deleteProfile(pass: String) {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: {
+        password: pass,
+      },
+    };
+    return this.http.delete(`${this.baseUrl}/profile`, options)
   }
 }
