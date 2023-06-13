@@ -13,7 +13,6 @@
           <div class="d-flex justify-content-between">
             <h3 class="card-title text-capitalize">{{ MyData?.first_name }} {{ MyData?.last_name }}</h3>
             <div><Button class="btn primaryBtn" routerLink="/user/edit">Edit Profile</Button></div>
-            <div><app-delete-modal /></div>
           </div>
           <div class="col-md-12 py-1">
             <label class="labels py-2">Email Address</label>
@@ -23,6 +22,7 @@
             <label class="labels py-2">Mobile Number</label>
             <label type="text" class="form-control">{{ MyData?.phone }}</label>
           </div>
+          <div class="float-end mt-3"><app-delete-modal /></div>
         </div>
       </div>
     </div>

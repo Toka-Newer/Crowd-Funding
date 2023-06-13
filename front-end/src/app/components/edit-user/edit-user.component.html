@@ -22,9 +22,9 @@
               <div *ngIf="this.getEmail.hasError('email')" class="invalid-feedback d-block">
                 Email is not valid
               </div>
-              <!-- <div *ngIf="this.errors?.email" class="invalid-feedback d-block">
+              <div *ngIf="this.errors?.email" class="invalid-feedback d-block">
                 {{ this.errors?.email[0] }}
-              </div> -->
+              </div>
             </ng-container>
           </div>
 
@@ -32,15 +32,12 @@
             <label for="fisrtname" class="form-label">First Name</label>
             <input type="name" class="form-control" id="fisrtname" formControlName="firstName" />
             <ng-container *ngIf="this.getFirstName.touched">
-              <!-- <div
-                *ngIf="this.getFirstName.hasError('required')"
-                class="invalid-feedback d-block"
-              >
+              <div *ngIf="this.getFirstName.hasError('required')" class="invalid-feedback d-block">
                 First Name is Required
-              </div> -->
-              <!-- <div *ngIf="this.errors?.name" class="invalid-feedback d-block">
+              </div>
+              <div *ngIf="this.errors?.name" class="invalid-feedback d-block">
                 {{ this.errors?.firstName[0] }}
-              </div> -->
+              </div>
             </ng-container>
           </div>
 
@@ -48,86 +45,65 @@
             <label for="lastName" class="form-label">Last Name</label>
             <input type="name" class="form-control" id="lastname" formControlName="lastName" />
             <ng-container *ngIf="this.getLastName.touched">
-              <!-- <div
-                *ngIf="this.getLastName.hasError('required')"
-                class="invalid-feedback d-block"
-              >
+              <div *ngIf="this.getLastName.hasError('required')" class="invalid-feedback d-block">
                 last Name is Required
-              </div> -->
-              <!-- <div *ngIf="this.errors?.name" class="invalid-feedback d-block">
+              </div>
+              <div *ngIf="this.errors?.name" class="invalid-feedback d-block">
                 {{ this.errors?.lastName[0] }}
-              </div> -->
+              </div>
             </ng-container>
           </div>
 
           <div class="mobile mt-4 mb-3">
             <label for="mobile" class="form-label">Phone</label>
             <input type="text" class="form-control" id="mobile" formControlName="mobile" />
-            <!-- <ng-container *ngIf="getMobile.touched">
-              <div
-                *ngIf="getMobile.hasError('required')"
-                class="invalid-feedback d-block"
-              >
+            <ng-container *ngIf="getMobile.touched">
+              <div *ngIf="getMobile.hasError('required')" class="invalid-feedback d-block">
                 Mobile is required
               </div>
-              <div
-                *ngIf="getMobile.hasError('pattern')"
-                class="invalid-feedback d-block"
-              >
+              <div *ngIf="getMobile.hasError('pattern')" class="invalid-feedback d-block">
                 Mobile is not valid
               </div>
-              <div
-                *ngIf="getMobile.value?.length > 11"
-                class="invalid-feedback d-block"
-              >
+              <div *ngIf="getMobile.value?.length > 11" class="invalid-feedback d-block">
                 Mobile number cannot exceed 11 digits
               </div>
               <div *ngIf="errors?.mobile" class="invalid-feedback d-block">
                 {{ errors?.mobile[0] }}
               </div>
-            </ng-container> -->
+            </ng-container>
           </div>
 
           <div class="birth_date mt-4 mb-3">
             <label for="birth_date" class="form-label">Birth Date </label>
             <input type="date" class="form-control" id="birth_date" formControlName="birth_date" />
-            <!-- <ng-container *ngIf="this.getBirth_date.touched">
-              <div
-                *ngIf="this.getBirth_date.hasError('required')"
-                class="invalid-feedback d-block"
-              >
+            <ng-container *ngIf="this.getBirth_date.touched">
+              <div *ngIf="this.getBirth_date.hasError('required')" class="invalid-feedback d-block">
                 Birth date is Required
               </div>
-              <div
-                *ngIf="this.getBirth_date.hasError('birth_date')"
-                class="invalid-feedback d-block"
-              >
+              <div *ngIf="this.getBirth_date.hasError('birth_date')" class="invalid-feedback d-block">
                 Email is not valid
               </div>
-              <div
-                *ngIf="this.errors?.birth_date"
-                class="invalid-feedback d-block"
-              >
+              <div *ngIf="this.errors?.birth_date" class="invalid-feedback d-block">
                 {{ this.errors?.birth_date[0] }}
               </div>
-            </ng-container> -->
+            </ng-container>
           </div>
 
-          <div class="facebook-profile mt-4 mb-3">
+          <!-- <div class="facebook-profile mt-4 mb-3">
             <label for="facebook_profile" class="form-label">Facebook Profile
             </label>
             <input type="text" class="form-control" id="facebook_profile" formControlName="facebook_profile" />
             <div *ngIf="getFacebook_profile.invalid && getFacebook_profile.touched" class="invalid-feedback d-block">
-              <!-- <div
+              <div
                 *ngIf="
                   getFacebook_profile.errors &&
                   getFacebook_profile.errors['pattern']
                 "
               >
                 Invalid Facebook profile link
-              </div> -->
+              </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="counrty mt-4 mb-3">
             <label for="country" class="form-label custom-label">Country
@@ -500,40 +476,28 @@
           <div class="file mt-4 mb-3">
             <label for="formFile" class="form-label">Avatar</label>
             <input class="form-control" type="file" id="formFile" (change)="readUrl($event)" />
-            <!-- <ng-container>
-              <div
-                *ngIf="
+            <ng-container>
+              <div *ngIf="
                   this.getImage.hasError('required') && this.getImage.touched
-                "
-                class="invalid-feedback d-block"
-              >
-                image is required
+                " class="invalid-feedback d-block">
+                Image is required
               </div>
-              <div
-                *ngIf="
+              <div *ngIf="
                   this.getImage.hasError('maxSize') && this.getImage.touched
-                "
-                class="invalid-feedback d-block"
-              >
-                image size mustn't exceed 2mb
+                " class="invalid-feedback d-block">
+                Image size mustn't exceed 2mb
               </div>
-              <div
-                *ngIf="
+              <div *ngIf="
                   this.getImage.hasError('invalidExtension') &&
                   this.getImage.touched
-                "
-                class="invalid-feedback d-block"
-              >
-                image type is not valid
+                " class="invalid-feedback d-block">
+                Image type is not valid
               </div>
 
-              <div
-                *ngIf="this.errors?.picture"
-                class="invalid-feedback d-block"
-              >
+              <div *ngIf="this.errors?.picture" class="invalid-feedback d-block ">
                 {{ this.errors?.picture[0] }}
               </div>
-            </ng-container> -->
+            </ng-container>
           </div>
         </div>
 
